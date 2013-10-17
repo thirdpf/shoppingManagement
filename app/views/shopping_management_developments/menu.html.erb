@@ -1,0 +1,14 @@
+<h1>購入商品在庫管理メニュー</h1>
+
+<%= form_tag( { :action => 'new' } ) %>
+<table width="80%" align="center">
+  <tr>
+    <td><%= submit_tag "購入商品登録" %></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <!-- 在庫検索用に変更予定 -->
+  <tr>
+    <td><%= submit_tag "在庫検索", {:type => "button", :onClick => "this.form.action='/shopping_management_developments/searchInit'; this.form.submit();"} %></td>
+  </tr>
+</table>

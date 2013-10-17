@@ -1,4 +1,10 @@
 ShoppingManagement::Application.routes.draw do
+  root :to => 'shopping_management_developments#menu'
+  resources :shopping_management_developments
+  post "shopping_management_developments/new"
+  post "shopping_management_developments/searchInit"
+  post "shopping_management_developments/search"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

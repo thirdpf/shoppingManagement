@@ -1,0 +1,37 @@
+<h1>Listing shopping_management_developments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Categorycd</th>
+      <th>Goods</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Sum</th>
+      <th>Place</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shopping_management_developments.each do |shopping_management_development| %>
+      <tr>
+        <td><%= shopping_management_development.categoryCd %></td>
+        <td><%= shopping_management_development.goods %></td>
+        <td><%= shopping_management_development.date %></td>
+        <td><%= shopping_management_development.amount %></td>
+        <td><%= shopping_management_development.sum %></td>
+        <td><%= shopping_management_development.place %></td>
+        <td><%= link_to 'Show', shopping_management_development %></td>
+        <td><%= link_to 'Edit', edit_shopping_management_development_path(shopping_management_development) %></td>
+        <td><%= link_to 'Destroy', shopping_management_development, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shopping management development', new_shopping_management_development_path %>

@@ -1,0 +1,2 @@
+module ShoppingManagementDevelopmentsHelper
+end

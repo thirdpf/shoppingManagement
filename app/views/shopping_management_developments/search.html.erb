@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>在庫検索</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <%= stylesheet_link_tag 'ror' %>
+</head>
+
+<body> 
+<h2>在庫検索</h2>
+カテゴリ または 商品名 のどちらかを選択して、検索してください。
+<br>
+<br>
+<%= form_tag( { :action => 'search' } ) %>
+
+  <!-- カテゴリ選択欄 @カテゴリTBL.カテゴリ名 -->
+  <%= select :page, :name, [["生活用品", "lived"], ["食料品", "eat"]], :prompt => "選択してください", :size => 20 %>
+  <!-- collection_select(:page, :name, @categories, :id, :name, :prompt => "選択してください") -->
+
+<br>
+<br>
+  <!-- 商品記入欄 -->
+  商品名   <%= text_field_tag 'goods', '', :size => 20 %>
+<br>
+<%= submit_tag "検索" %>
+<br>
+<%= form_tag( { :action => 'menu' } ) %>
+<%= submit_tag "メニューへ" %>
+<br>
+</body>
+</html> 

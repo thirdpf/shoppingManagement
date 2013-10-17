@@ -1,0 +1,41 @@
+<%= form_for(@shopping_management_development) do |f| %>
+  <% if @shopping_management_development.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shopping_management_development.errors.count, "error") %> prohibited this shopping_management_development from being saved:</h2>
+
+      <ul>
+      <% @shopping_management_development.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :categoryCd %><br>
+    <%= f.number_field :categoryCd %>
+  </div>
+  <div class="field">
+    <%= f.label :goods %><br>
+    <%= f.text_field :goods %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :sum %><br>
+    <%= f.number_field :sum %>
+  </div>
+  <div class="field">
+    <%= f.label :place %><br>
+    <%= f.text_field :place %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

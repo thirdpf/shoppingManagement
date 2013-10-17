@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>商品在庫一覧</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <%= stylesheet_link_tag 'ror' %>
+</head>
+
+<body>
+<h2>商品在庫一覧</h2>
+ 
+<table border="1">
+  <tr style="background-color:pink">
+    <th>カテゴリ</th>
+    <th>商品名</th>
+    <th>在庫数</th>
+    <th>消費</th>
+    <th>履歴</th>
+  </tr>
+  <% for r in @results %>
+    <tr style="background-color:<%= cycle('white', 'glay') %>">
+      <td><%=h r.id %></td>
+      <td><%=h r.goods %></td>
+      <td><%=h r.id %></td>
+      <td><%=h r.id %></td>
+      <td><%=h r.id %></td>
+    </tr>
+  <% end %>
+</table>
+</body>
+</html> 

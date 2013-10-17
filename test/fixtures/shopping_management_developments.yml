@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  categoryCd: 1
+  goods: MyString
+  date: 2013-10-15 15:17:33
+  amount: 1
+  sum: 1
+  place: MyString
+
+two:
+  categoryCd: 1
+  goods: MyString
+  date: 2013-10-15 15:17:33
+  amount: 1
+  sum: 1
+  place: MyString
