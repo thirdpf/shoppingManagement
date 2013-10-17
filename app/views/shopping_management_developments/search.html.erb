@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag 'ror' %>
 </head>
 
-<body> 
+<body>
 <h2>在庫検索</h2>
 カテゴリ または 商品名 のどちらかを選択して、検索してください。
 <br>
@@ -13,8 +13,8 @@
 <%= form_tag( { :action => 'search' } ) %>
 
   <!-- カテゴリ選択欄 @カテゴリTBL.カテゴリ名 -->
-  <%= select :page, :name, [["生活用品", "lived"], ["食料品", "eat"]], :prompt => "選択してください", :size => 20 %>
-  <!-- collection_select(:page, :name, @categories, :id, :name, :prompt => "選択してください") -->
+  カテゴリ <%= collection_select(:page, :name, @category, :id, :categoryname, :prompt => "選択してください") %>
+
 
 <br>
 <br>
@@ -23,8 +23,4 @@
 <br>
 <%= submit_tag "検索" %>
 <br>
-<%= form_tag( { :action => 'menu' } ) %>
-<%= submit_tag "メニューへ" %>
-<br>
-</body>
-</html> 
+<%= form_tag( { :action => 'menu' } ) %> <%= submit_tag "メニューへ" %> <br> </body> </html>

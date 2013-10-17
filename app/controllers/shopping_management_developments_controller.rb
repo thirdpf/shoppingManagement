@@ -6,7 +6,8 @@ class ShoppingManagementDevelopmentsController < ApplicationController
 
   # 検索画面表示
   def searchInit
-    @categories = Category.find_by_categorycd(:all)
+    @category = Category.select("categoryname")
+    #@categories = Category.find_by_categorycd(:all)
     render :action => 'search.html.erb'
   end
 
