@@ -13,8 +13,8 @@ development:
   encoding: utf8
   database: shoppingManagement_development
   pool: 5
-  username: test1
-  password: pass
+  username: root
+  password: root
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -25,8 +25,8 @@ test:
   encoding: utf8
   database: shoppingManagement_test
   pool: 5
-  username: test1
-  password: pass
+  username: root
+  password: root
   host: localhost
 
 production:
@@ -34,6 +34,6 @@ production:
   encoding: utf8
   database: shoppingManagement_production
   pool: 5
-  username: test1
-  password: pass
+  username: root
+  password: root
   host: localhost
