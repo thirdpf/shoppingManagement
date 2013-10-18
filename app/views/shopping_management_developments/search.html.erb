@@ -5,22 +5,24 @@
   <%= stylesheet_link_tag 'ror' %>
 </head>
 
-<body>
+<body> 
 <h2>在庫検索</h2>
 カテゴリ または 商品名 のどちらかを選択して、検索してください。
 <br>
 <br>
 <%= form_tag( { :action => 'search' } ) %>
-
   <!-- カテゴリ選択欄 @カテゴリTBL.カテゴリ名 -->
-  カテゴリ <%= collection_select(:page, :name, @category, :id, :categoryname, :prompt => "選択してください") %>
-
-
+  カテゴリ <%= collection_select(:page, :categorycd, @category, :categorycd, :categoryname, :prompt => "選択してください") %>
+           <!--                  out_object, out_column, object, in_column(cant see), in_column(output) -->
 <br>
 <br>
   <!-- 商品記入欄 -->
-  商品名   <%= text_field_tag 'goods', '', :size => 20 %>
+  商品名   <%= text_field_tag :goods, '', :size => 20 %>
 <br>
 <%= submit_tag "検索" %>
 <br>
-<%= form_tag( { :action => 'menu' } ) %> <%= submit_tag "メニューへ" %> <br> </body> </html>
+<%= form_tag( { :action => 'index' } ) %>
+<%= submit_tag "メニューへ" %>
+<br>
+</body>
+</html>

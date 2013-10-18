@@ -7,22 +7,23 @@
 
 <body>
 <h2>商品在庫一覧</h2>
- 
 <table border="1">
   <tr style="background-color:pink">
     <th>カテゴリ</th>
     <th>商品名</th>
     <th>在庫数</th>
     <th>消費</th>
+    <th>消費反映</th>
     <th>履歴</th>
   </tr>
   <% for r in @results %>
-    <tr style="background-color:<%= cycle('white', 'glay') %>">
-      <td><%=h r.id %></td>
+    <tr style="background-color:<%= cycle('white', 'yellow') %>">
+      <td><%=h r.categoryCd %></td>
       <td><%=h r.goods %></td>
-      <td><%=h r.id %></td>
-      <td><%=h r.id %></td>
-      <td><%=h r.id %></td>
+      <td><%=h r.sum %></td>    
+      <td><%= number_field_tag 'quantity', nil, in: 1...100 , :size => 5  %></td>
+      <td><%= form_tag( { :action => 'index' } ) %><%= submit_tag "反映" %></td>
+      <td><%= form_tag( { :action => 'index' } ) %><%= submit_tag "確認" %></td>
     </tr>
   <% end %>
 </table>

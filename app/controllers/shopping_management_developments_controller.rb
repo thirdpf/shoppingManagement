@@ -6,15 +6,41 @@ class ShoppingManagementDevelopmentsController < ApplicationController
 
   # 検索画面表示
   def searchInit
-    @category = Category.select("categoryname")
-    #@categories = Category.find_by_categorycd(:all)
+    @category = Category.find(:all)
     render :action => 'search.html.erb'
   end
 
-  # 検索結果表示画面表示
+  # 検索結果表示画面
   def search
-    @results = ShoppingManagementDevelopment.find(:all, 
-                           :conditions => ["goods like ?" ,"%#{params[:goods]}%"])
+    #@results = ShoppingManagementDevelopment.find(:all, 
+    #                      :conditions => ["goods like ?" ,"%#{params[:goods]}%"])
+    @categoryt1 = params['page']
+    @categoryt2 = @categoryt1['categorycd']
+    @results = ShoppingManagementDevelopment.find_by_sql(["SELECT * FROM shopping_management_developments WHERE goods LIKE ? and categoryCd = ?", "%#{params['goods']}%","#{@categoryt2}"])
+
+#SELECT buynum - shohinum
+#FROM 
+# (
+#  SELECT categoryCd, goods, SUM(sum) buynum
+#  FROM shoppingmanagement_development.shopping_management_developments
+#  WHERE categoryCd = :code
+#  AND   goods      = :goods
+#  GROUP BY categoryCd, goods
+# ) b,
+# (
+#  SELECT categoryCd, goods, SUM(shohisum) shohinum
+#  FROM shoppingmanagement_development.shohis
+#  WHERE categoryCd = :code
+#  AND   goods      = :goods
+#  GROUP BY categoryCd, goods
+# ) s
+#WHERE b.categoryCd = s.categoryCd
+#AND   b.goods      = s.goods
+#;
+
+
+
+
     render :action => 'searchResult.html.erb'
   end
 
