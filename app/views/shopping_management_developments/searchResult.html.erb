@@ -23,7 +23,7 @@
       <td><%=h r.zaiko %></td>
       <% form_tag() %>
       <td><%= number_field_tag :shohi , '', :size => 10 %></td>
-      <td><%= button_to "反映" , { :action => 'createShohi' , :shohi => **** , :category => r.categoryCd, :goods => r.goods } %><!-- submit_tag "反映",  { :type => "button", :onClick => "this.form.action='/shopping_management_developments/createShohi'; this.form.submit();"} --></td>
+      <td><%= button_to "反映" , { :action => 'createShohi' , :shohi => '1' , :category => r.categoryCd, :goods => r.goods } %><!-- submit_tag "反映",  { :type => "button", :onClick => "this.form.action='/shopping_management_developments/createShohi'; this.form.submit();"} --></td>
       <td><%= button_to "確認" , { :action => 'searchHistory', :category => r.categoryCd, :goods => r.goods }, :confirm => "履歴確認しますか?" %></td>
       <% end %>
   </tr>
