@@ -1,9 +1,13 @@
 ShoppingManagement::Application.routes.draw do
   root :to => 'shopping_management_developments#menu'
-  resources :shopping_management_developments
+  resources :shopping_management_developments #do
+  #  collection { post "searchHistory","createShohi"} 
+  #end
   post "shopping_management_developments/new"
   post "shopping_management_developments/searchInit"
   post "shopping_management_developments/search"
+  post "shopping_management_developments/searchHistory"
+  post "shopping_management_developments/createShohi"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

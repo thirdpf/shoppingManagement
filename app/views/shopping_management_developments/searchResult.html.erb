@@ -1,11 +1,10 @@
-<html>
-<head>
+<thead>
   <title>商品在庫一覧</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <%= stylesheet_link_tag 'ror' %>
-</head>
+</thead>
 
-<body>
+<tbody>
 <h2>商品在庫一覧</h2>
 <table border="1">
   <tr style="background-color:pink">
@@ -16,16 +15,24 @@
     <th>消費反映</th>
     <th>履歴</th>
   </tr>
+  
   <% for r in @results %>
-    <tr style="background-color:<%= cycle('white', 'yellow') %>">
+  <tr style="background-color:<%= cycle('white', 'yellow') %>">
       <td><%=h r.categoryCd %></td>
       <td><%=h r.goods %></td>
-      <td><%=h r.sum %></td>    
-      <td><%= number_field_tag 'quantity', nil, in: 1...100 , :size => 5  %></td>
-      <td><%= form_tag( { :action => 'index' } ) %><%= submit_tag "反映" %></td>
-      <td><%= form_tag( { :action => 'index' } ) %><%= submit_tag "確認" %></td>
-    </tr>
-  <% end %>
+      <td><%=h r.zaiko %></td>
+      <% form_tag() %>
+      <td><%= number_field_tag :shohi , '', :size => 10 %></td>
+      <td><%= button_to "反映" , { :action => 'createShohi' , :shohi => **** , :category => r.categoryCd, :goods => r.goods } %><!-- submit_tag "反映",  { :type => "button", :onClick => "this.form.action='/shopping_management_developments/createShohi'; this.form.submit();"} --></td>
+      <td><%= button_to "確認" , { :action => 'searchHistory', :category => r.categoryCd, :goods => r.goods }, :confirm => "履歴確認しますか?" %></td>
+      <% end %>
+  </tr>
 </table>
-</body>
-</html> 
+<br><br>
+<% form_tag({ :action => 'searchInit' }) %>
+<!-- link_to '戻る', shopping_management_developments_searchInit_path -->
+<%= button_to  "戻る" , { :action => 'searchInit' } %>
+<br>
+<%= link_to '購入商品在庫管理メニュー', root_path %>
+</tbody>
+

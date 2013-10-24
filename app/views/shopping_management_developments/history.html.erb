@@ -1,0 +1,42 @@
+<html>
+<thead>
+  <title>購入履歴一覧</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <%= stylesheet_link_tag 'ror' %>
+</thead>
+
+<tbody>
+<h2>購入履歴一覧</h2>
+<table border="1">
+  <tr style="background-color:pink">
+    <th>日付</th>
+    <th>商品名</th>
+    <th>個数</th>
+    <th>金額</th>
+    <th>購入場所</th>
+    <th>状態</th>
+    <th>削除</th>
+    <th>更新</th>
+  </tr>
+  <% for r in @history %>
+    <tr style="background-color:<%= cycle('white', 'yellow') %>">
+      <td><%=  r.viewDate %></td>
+      <td><%=h r.viewGoods %></td>
+      <td><%=h r.viewSum %></td>
+      <td><%=h r.viewAmount %></td>
+      <td><%=h r.viewPlace %></td>
+      <td><%=h r.viewStatus %></td>
+      <td><%= check_box_tag :deleteflg, true, false, {} %></td>
+          <%= hidden_field_tag 'session[:deleteflg] = :deleteflg' %>
+      <td><%= link_to '更新', edit_shopping_management_development_path(r) %></td>
+    </tr>
+  <% end %>
+</table>
+<br><br>
+<% form_tag({ :action => 'search' }) %>
+<!-- link_to '戻る', shopping_management_developments_searchInit_path -->
+<%= button_to  "戻る" , { :action => 'search' } %>
+<br>
+<%= link_to '購入商品在庫管理メニュー', root_path %>
+</tbody>
+</html>
